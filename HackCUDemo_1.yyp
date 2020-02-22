@@ -55,6 +55,14 @@
             }
         },
         {
+            "Key": "19ecaec3-fa3c-4737-a168-6f87206d4291",
+            "Value": {
+                "id": "1bc53cf3-d848-4133-996f-d858a56c233f",
+                "resourcePath": "rooms\\vasa_test_rm\\vasa_test_rm.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "1ba460b8-dc02-40d8-9bab-88a12bb70cc7",
             "Value": {
                 "id": "eac26f64-4f9e-4518-9040-455bfd211bf6",
