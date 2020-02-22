@@ -106,7 +106,7 @@
             "Key": "677654ef-391d-40d0-85bc-3ba776af1d30",
             "Value": {
                 "id": "eded2b42-4819-4738-a1bb-91e56de6e329",
-                "resourcePath": "sprites\\enemy1_spr\\enemy1_spr.yy",
+                "resourcePath": "sprites\\enemy1_walk_spr\\enemy1_walk_spr.yy",
                 "resourceType": "GMSprite"
             }
         },
