@@ -11,7 +11,7 @@ v_spd = v_spd + grav_acc;
 // -- Movement
 
 // Jumping
-if(key_jump) {
+if place_meeting(x, y+1, ground1_obj) && key_jump {
 	v_spd = jump_spd;
 }	
 
