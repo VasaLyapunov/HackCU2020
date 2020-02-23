@@ -111,6 +111,11 @@ while (place_meeting(x, y, ground_parent_obj)) {
 }
 
 
+if (!animation_interrupt && in_air && v_spd > 7) {
+	animation_interrupt = true;
+	sprite_index = player_fall_spr;
+}
+
 // -- Animation
 if (keyboard_check_pressed(ord("X")) && !animation_interrupt && !sword_out) {
     animation_interrupt = true;
