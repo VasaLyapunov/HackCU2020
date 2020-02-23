@@ -82,12 +82,14 @@ if place_meeting(x, y+1, ground_parent_obj) && key_jump && !animation_interrupt 
 }    
 
 // Hor collision
-if(place_meeting(x+h_spd, y, ground_parent_obj)) {
+if(place_meeting(x+h_spd, y, ground_parent_obj) && !place_meeting(x, y, ground_parent_obj)) {
     while(!place_meeting(x+h_dir, y, ground_parent_obj)) {
         x = x + h_dir;
     }
+	
     h_spd = 0;
 }
+
 if (!animation_interrupt || in_air) {
     x = x + h_spd;
 }
@@ -95,7 +97,7 @@ if (!animation_interrupt || in_air) {
 
 // Vert collision
 in_air = 0;
-if(place_meeting(x, y+v_spd, ground_parent_obj)) {
+if(place_meeting(x, y+v_spd, ground_parent_obj) && !place_meeting(x, y, ground_parent_obj)) {
     while(!place_meeting(x, y+sign(v_spd), ground_parent_obj)) {
         y = y + sign(v_spd);
     }
@@ -106,22 +108,111 @@ else {
 }
 y = y + v_spd;
 
+// reactive collisions for sprite animations
+if (position_meeting(bbox_right, y, ground_parent_obj) != 0) {
+	while (position_meeting(bbox_right, y, ground_parent_obj)) { 
+		if (sprite_index != player_air_attack1_spr) {
+			x--;
+		}
+		
+		else {
+			x -= sprite_get_bbox_right(sprite_index) / 2 + (x - x0);
+			break;
+		}
+	}
+}
+
+if (position_meeting(bbox_left, y, ground_parent_obj)) {
+	while (position_meeting(bbox_left, y, ground_parent_obj)) {
+		if (sprite_index != player_air_attack1_spr) {
+			x++;
+		}
+		
+		else {
+			x += sprite_get_bbox_right(sprite_index) / 2 + (x - x0);
+			break;
+		}
+	}
+}
+
+if (position_meeting(x, bbox_bottom, ground_parent_obj)) {
+	while (position_meeting(x, bbox_bottom, ground_parent_obj)) {
+		if (sprite_index != player_air_attack1_spr) {
+			y--;
+		}
+		
+		else {
+			break;
+		}
+	}
+}
+
+if (position_meeting(x, bbox_top, ground_parent_obj)) {
+	while (position_meeting(x, bbox_top, ground_parent_obj)) {
+		if (sprite_index != player_air_attack1_spr) {
+			y++;
+		}
+		
+		else {
+			break;
+		}
+	}
+}
 
 // -- Animation
 if (keyboard_check_pressed(ord("X")) && !animation_interrupt && !sword_out) {
     animation_interrupt = true;
+	image_index = 0;
     sprite_index = player_swrd_drw_spr;
 }
 
 if (keyboard_check_pressed(ord("X")) && !animation_interrupt && sword_out) {
     animation_interrupt = true;
+	image_index = 0;
     sprite_index = player_swrd_shte_spr;
 }
 
 if (started_jump) {
     animation_interrupt = true;
     sprite_index = player_jump_spr;
-}    
+}
+
+if (keyboard_check_pressed(ord("A")) && !animation_interrupt) {
+	animation_interrupt = true;
+	image_index = 0;
+	sprite_index = player_attack1_spr;
+}
+else if (keyboard_check_pressed(ord("A")) && animation_interrupt && in_air && (sprite_index == player_jump_spr || sprite_index == player_fall_spr)) {
+	animation_interrupt = true;
+	image_index = 0;
+	sprite_index = player_air_attack1_spr;
+}
+
+
+
+if (keyboard_check_pressed(ord("S")) && !animation_interrupt) {
+	animation_interrupt = true;
+	image_index = 0;
+	sprite_index = player_attack2_spr;
+}
+else if (keyboard_check_pressed(ord("S")) && animation_interrupt && in_air && (sprite_index == player_jump_spr || sprite_index == player_fall_spr)) {
+	animation_interrupt = true;
+	image_index = 0;
+	sprite_index = player_air_attack2_spr;
+}
+
+
+
+if (keyboard_check_pressed(ord("D")) && !animation_interrupt) {
+	animation_interrupt = true;
+	image_index = 0;
+	sprite_index = player_attack3_spr;
+}
+else if (keyboard_check_pressed(ord("D")) && animation_interrupt && in_air && (sprite_index == player_jump_spr || sprite_index == player_fall_spr)) {
+	animation_interrupt = true;
+	image_index = 0;
+	sprite_index = player_air_attack3_loop_spr;
+}
 
 if (!animation_interrupt && !in_air) {
     if (h_dir == 0) {
