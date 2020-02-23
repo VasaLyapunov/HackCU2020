@@ -82,8 +82,8 @@ if place_meeting(x, y+1, ground_parent_obj) && key_jump && !animation_interrupt 
 }    
 
 // Hor collision
-if(place_meeting(x+h_spd, y, ground_parent_obj) || cEnemy) {
-    while(!place_meeting(x+h_dir, y, ground_parent_obj) && !place_meeting(x + h_dir, y, enemy1_obj)) {
+if(place_meeting(x+h_spd, y, ground_parent_obj)) {
+    while(!place_meeting(x+h_dir, y, ground_parent_obj)) {
         x = x + h_dir;
     }
     h_spd = 0;
@@ -105,10 +105,6 @@ else {
     in_air = 1;
 }
 y = y + v_spd;
-
-while (place_meeting(x, y, ground_parent_obj)) {
-	y -= 1;
-}
 
 
 // -- Animation
