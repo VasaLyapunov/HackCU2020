@@ -2,7 +2,7 @@
 {
     "name": "vasa_test_rm",
     "id": "19ecaec3-fa3c-4737-a168-6f87206d4291",
-    "creationCodeFile": "",
+    "creationCodeFile": "RoomCreationCode.gml",
     "inheritCode": false,
     "inheritCreationOrder": false,
     "inheritLayers": false,

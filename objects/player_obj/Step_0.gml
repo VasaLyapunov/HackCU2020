@@ -14,7 +14,45 @@ v_spd = v_spd + grav_acc;
 if place_meeting(x, y+1, ground1_obj) && key_jump {
 	v_spd = jump_spd;
 }	
-
+if(x > room_width-sprite_width){
+	if(global.rightRoomIndex >= 0){
+		room_goto(global.rightRoomIndex);
+		x=0;
+	}
+	else{
+		
+		x=room_width-sprite_width;
+	}
+}
+if(x < 0){
+	if(global.leftRoomIndex >= 0){
+		room_goto(global.leftRoomIndex);
+		x=room_width-sprite_width;
+	}
+	else{
+		x=0
+	}
+}
+if(y > room_height-sprite_height){
+	if(global.downRoomIndex >= 0){
+		room_goto(global.downRoomIndex);
+		y=0;
+	}
+	else{
+		
+		y=room_height-sprite_height;
+	}
+}
+if(y < 0){
+	show_debug_message(string(global.upRoomIndex));
+	if(global.upRoomIndex >= 0){
+		room_goto(global.upRoomIndex);
+		y=room_height-sprite_height;
+	}
+	else{
+		y=0
+	}
+}
 // Hor collision
 if(place_meeting(x+h_spd, y, ground1_obj)) {
 	while(!place_meeting(x+h_dir, y, ground1_obj)) {
