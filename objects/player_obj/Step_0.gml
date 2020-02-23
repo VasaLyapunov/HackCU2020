@@ -5,6 +5,7 @@ if (keyboard_check_pressed(vk_f11)) {
     window_set_fullscreen(!window_get_fullscreen());
 }
 
+
 key_left = keyboard_check(vk_left);
 key_right = keyboard_check(vk_right);
 key_jump = keyboard_check_pressed(vk_space);
@@ -75,14 +76,14 @@ else {
 
 // Jumping
 var started_jump = false;
-if place_meeting(x, y+1, ground1_obj) && key_jump && !animation_interrupt {
+if place_meeting(x, y+1, ground_parent_obj) && key_jump && !animation_interrupt {
     v_spd = jump_spd;
     started_jump = true;
 }    
 
 // Hor collision
-if(place_meeting(x+h_spd, y, ground1_obj) || cEnemy) {
-    while(!place_meeting(x+h_dir, y, ground1_obj) && !place_meeting(x + h_dir, y, enemy1_obj)) {
+if(place_meeting(x+h_spd, y, ground_parent_obj) || cEnemy) {
+    while(!place_meeting(x+h_dir, y, ground_parent_obj) && !place_meeting(x + h_dir, y, enemy1_obj)) {
         x = x + h_dir;
     }
     h_spd = 0;
@@ -94,8 +95,8 @@ if (!animation_interrupt || in_air) {
 
 // Vert collision
 in_air = 0;
-if(place_meeting(x, y+v_spd, ground1_obj)) {
-    while(!place_meeting(x, y+sign(v_spd), ground1_obj)) {
+if(place_meeting(x, y+v_spd, ground_parent_obj)) {
+    while(!place_meeting(x, y+sign(v_spd), ground_parent_obj)) {
         y = y + sign(v_spd);
     }
     v_spd = 0;
@@ -104,6 +105,10 @@ else {
     in_air = 1;
 }
 y = y + v_spd;
+
+while (place_meeting(x, y, ground_parent_obj)) {
+	y -= 1;
+}
 
 
 // -- Animation
@@ -131,12 +136,11 @@ if (!animation_interrupt && !in_air) {
             sprite_index = player_idle1_spr;
         }
     }
-    if (h_dir == 1) {
-        image_xscale = sign(h_spd);
+	else {
         sprite_index = player_run_spr;
-    }
-    else if (h_dir == -1) {
-        image_xscale = sign(h_spd);
-        sprite_index = player_run_spr;
-    }
+	}
+}
+
+if (h_dir != 0) {
+	image_xscale = scale * h_dir;
 }

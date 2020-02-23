@@ -4,6 +4,9 @@ jump_spd = -20;
 grav_acc = 1;
 v_spd = 0;
 
+// player scale
+scale = 1;
+
 // health/cooldowns/stat trackers
 hp = 10;
 hp_max = 10;
