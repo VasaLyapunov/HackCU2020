@@ -26,6 +26,7 @@ if (sprite_index == player_jump_spr || sprite_index == player_air_attack1_spr ||
 }
 
 if (sprite_index == player_air_attack3_end_spr) {
+	sword_out = true;
 	animation_interrupt = false;
 }
 
