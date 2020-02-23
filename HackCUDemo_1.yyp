@@ -63,6 +63,14 @@
             }
         },
         {
+            "Key": "170e034d-0a44-4c62-b359-6681f150734b",
+            "Value": {
+                "id": "126c0158-0ab9-422b-a6d5-736c6efaf7d4",
+                "resourcePath": "views\\170e034d-0a44-4c62-b359-6681f150734b.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "1ba460b8-dc02-40d8-9bab-88a12bb70cc7",
             "Value": {
                 "id": "eac26f64-4f9e-4518-9040-455bfd211bf6",
@@ -340,6 +348,14 @@
                 "id": "7813988c-081a-4247-94d6-71f55ecdcab5",
                 "resourcePath": "views\\c0a9475b-3eee-4ad5-b86c-473d7272955a.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c5058d85-7e87-4159-aae2-9cdabecb27a5",
+            "Value": {
+                "id": "5e1739c7-0e54-44c3-b1c4-4b88d4b5e612",
+                "resourcePath": "sprites\\clouds_bg\\clouds_bg.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
