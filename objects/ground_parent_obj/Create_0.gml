@@ -19,29 +19,72 @@ for (var col = 0; col < image_xscale; col ++) {
 		// Corners
 		if(row == 0 && col == 0) {
 			tilemap_set(map_id, tile_TL, x_t+col, y_t+row);
+			var tile_above = position_meeting((x_t+col)*tile_size, (y_t+row)*tile_size-tile_size, ground_parent_obj)
+			var tile_left = position_meeting((x_t+col)*tile_size-tile_size, (y_t+row)*tile_size, ground_parent_obj)
+			if(tile_above && tile_left)
+				tilemap_set(map_id, tile_C, x_t+col, y_t+row);
+			if(tile_above)
+				tilemap_set(map_id, tile_L, x_t+col, y_t+row);
+			if(tile_left)
+				tilemap_set(map_id, tile_T, x_t+col, y_t+row);
 		}
 		else if(row == 0 && col == final_col) {
 			tilemap_set(map_id, tile_TR, x_t+col, y_t+row);
+			var tile_above = position_meeting((x_t+col)*tile_size, (y_t+row)*tile_size-tile_size, ground_parent_obj)
+			var tile_right = position_meeting((x_t+col)*tile_size+tile_size, (y_t+row)*tile_size, ground_parent_obj)
+			if(tile_above && tile_right)
+				tilemap_set(map_id, tile_C, x_t+col, y_t+row);
+			if(tile_above)
+				tilemap_set(map_id, tile_R, x_t+col, y_t+row);
+			if(tile_right)
+				tilemap_set(map_id, tile_T, x_t+col, y_t+row);
 		}
 		else if(row == final_row && col == final_col) {
 			tilemap_set(map_id, tile_BR, x_t+col, y_t+row);
+			var tile_below = position_meeting((x_t+col)*tile_size, (y_t+row)*tile_size+tile_size, ground_parent_obj)
+			var tile_right = position_meeting((x_t+col)*tile_size+tile_size, (y_t+row)*tile_size, ground_parent_obj)
+			if(tile_below && tile_right)
+				tilemap_set(map_id, tile_C, x_t+col, y_t+row);
+			if(tile_below)
+				tilemap_set(map_id, tile_R, x_t+col, y_t+row);
+			if(tile_right)
+				tilemap_set(map_id, tile_B, x_t+col, y_t+row);
 		}
 		else if(row == final_row && col == 0) {
 			tilemap_set(map_id, tile_BL, x_t+col, y_t+row);
+			var tile_below = position_meeting((x_t+col)*tile_size, (y_t+row)*tile_size+tile_size, ground_parent_obj)
+			var tile_left = position_meeting((x_t+col)*tile_size-tile_size, (y_t+row)*tile_size, ground_parent_obj)
+			if(tile_below && tile_left)
+				tilemap_set(map_id, tile_C, x_t+col, y_t+row);
+			if(tile_below)
+				tilemap_set(map_id, tile_L, x_t+col, y_t+row);
+			if(tile_left)
+				tilemap_set(map_id, tile_B, x_t+col, y_t+row);
 		}
 		// Sides
 		else if(row == 0) {
 			tilemap_set(map_id, tile_T, x_t+col, y_t+row);
-			//if(place_meeting((x_t+col)*tile_size, (y_t+row)*tile_size, enemy1_obj);
+			if(position_meeting((x_t+col)*tile_size, (y_t+row)*tile_size-tile_size, ground_parent_obj)) {
+				tilemap_set(map_id, tile_C, x_t+col, y_t+row);
+			}
 		}
 		else if(col == 0) {
 			tilemap_set(map_id, tile_L, x_t+col, y_t+row);
+			if(position_meeting((x_t+col)*tile_size-tile_size, (y_t+row)*tile_size, ground_parent_obj)) {
+				tilemap_set(map_id, tile_C, x_t+col, y_t+row);
+			}
 		}
 		else if(col == final_col) {
 			tilemap_set(map_id, tile_R, x_t+col, y_t+row);
+			if(position_meeting((x_t+col)*tile_size+tile_size, (y_t+row)*tile_size, ground_parent_obj)) {
+				tilemap_set(map_id, tile_C, x_t+col, y_t+row);
+			}
 		}
 		else if(row == final_row) {
 			tilemap_set(map_id, tile_B, x_t+col, y_t+row);
+			if(position_meeting((x_t+col)*tile_size, (y_t+row)*tile_size+tile_size, ground_parent_obj)) {
+				tilemap_set(map_id, tile_C, x_t+col, y_t+row);
+			}
 		}
 		// Body
 		else {
