@@ -11,7 +11,7 @@ key_right = keyboard_check(vk_right);
 key_jump = keyboard_check_pressed(vk_space);
 
 h_dir = (key_right - key_left);
-h_spd = h_dir * walk_spd;
+var h_spd = h_dir * walk_spd;
 v_spd = v_spd + grav_acc;
 //Change rooms
 if(x > room_width-sprite_width){
@@ -56,54 +56,13 @@ if(y < 0){
 
 // Grab possible collisions
 cEnemy = place_meeting(x + h_spd, y, enemy1_obj);
-cEnemyOther = place_meeting(x, y, enemy1_obj);
 
 // Interact with enemies
-if (cEnemy || cEnemyOther) {
-	var enemyInst;
-	if (cEnemy) {
-		enemyInst = instance_place(x + h_spd, y, enemy1_obj);
-	}
-	else {
-		enemyInst = instance_place(x, y, enemy1_obj);
-	}
-	
-	
-	if (sprite_index == player_attack1_spr && image_index == 2) {
-		enemyInst.dying = true;
-	}
-	else if (sprite_index == player_attack2_spr && (image_index == 6 || image_index == 7)) {
-		enemyInst.dying = true;
-	}
-		else if (sprite_index == player_attack3_spr && (image_index == 3 || image_index == 4)) {
-		enemyInst.dying = true;
-	}
-	else if (sprite_index == player_air_attack1_spr && image_index == 1) {
-		enemyInst.dying = true;
-	}
-	else if (sprite_index == player_air_attack2_spr && image_index <= 2) {
-		enemyInst.dying = true;
-	}
-	else if (sprite_index == player_air_attack3_loop_spr || sprite_index == player_air_attack3_end_spr) {
-		enemyInst.dying = true;
-	}
-	
-	if (!enemy_collided && enemyInst.dying == false && !i_frame) {
-		if (position_meeting(bbox_right, y, ground_parent_obj)) {
-			h_spd -= 15;
-		
-		}
-		else {
-			h_spd += 15;
-		}
-		
-		v_spd -= 15;
-		i_frame = true;
+if (cEnemy || place_meeting(x, y, enemy1_obj)) {
+	if (!enemy_collided) {
 		hp -= 1;
+		show_debug_message(hp)
 	}
-	
-	alarm[0] = room_speed * 2;
-	alarm[1] = room_speed * 0.5;
 	
 	enemy_collided = true;
 }
@@ -150,46 +109,53 @@ else {
 y = y + v_spd;
 
 // reactive collisions for sprite animations
-
-while (position_meeting(bbox_right, y, ground_parent_obj)) { 
-	if (sprite_index != player_air_attack1_spr) {
-		x--;
-	}
+if (position_meeting(bbox_right, y, ground_parent_obj) != 0) {
+	while (position_meeting(bbox_right, y, ground_parent_obj)) { 
+		if (sprite_index != player_air_attack1_spr) {
+			x--;
+		}
 		
-	else {
-		x -= sprite_get_bbox_right(sprite_index) / 2 + (x - x0);
-		break;
+		else {
+			x -= sprite_get_bbox_right(sprite_index) / 2 + (x - x0);
+			break;
+		}
 	}
 }
 
-while (position_meeting(bbox_left, y, ground_parent_obj)) {
-	if (sprite_index != player_air_attack1_spr) {
-		x++;
-	}
+if (position_meeting(bbox_left, y, ground_parent_obj)) {
+	while (position_meeting(bbox_left, y, ground_parent_obj)) {
+		if (sprite_index != player_air_attack1_spr) {
+			x++;
+		}
 		
-	else {
-		x += sprite_get_bbox_right(sprite_index) / 2 + (x - x0);
-		break;
+		else {
+			x += sprite_get_bbox_right(sprite_index) / 2 + (x - x0);
+			break;
+		}
 	}
 }
 
-while (position_meeting(x, bbox_bottom, ground_parent_obj)) {
-	if (sprite_index != player_air_attack1_spr) {
-		y--;
-	}
+if (position_meeting(x, bbox_bottom, ground_parent_obj)) {
+	while (position_meeting(x, bbox_bottom, ground_parent_obj)) {
+		if (sprite_index != player_air_attack1_spr) {
+			y--;
+		}
 		
-	else {
-		break;
+		else {
+			break;
+		}
 	}
 }
 
-while (position_meeting(x, bbox_top, ground_parent_obj)) {
-	if (sprite_index != player_air_attack1_spr) {
-		y++;
-	}
+if (position_meeting(x, bbox_top, ground_parent_obj)) {
+	while (position_meeting(x, bbox_top, ground_parent_obj)) {
+		if (sprite_index != player_air_attack1_spr) {
+			y++;
+		}
 		
-	else {
-		break;
+		else {
+			break;
+		}
 	}
 }
 
