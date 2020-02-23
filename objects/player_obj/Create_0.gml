@@ -5,7 +5,7 @@ grav_acc = 1;
 v_spd = 0;
 
 // player scale
-scale = 1;
+scale = 1.5;
 
 // health/cooldowns/stat trackers
 hp = 10;
