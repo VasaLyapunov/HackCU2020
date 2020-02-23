@@ -56,12 +56,43 @@ if(y < 0){
 
 // Grab possible collisions
 cEnemy = place_meeting(x + h_spd, y, enemy1_obj);
+cEnemyOther = place_meeting(x, y, enemy1_obj);
 
 // Interact with enemies
-if (cEnemy || place_meeting(x, y, enemy1_obj)) {
-	if (!enemy_collided) {
+if (cEnemy || cEnemyOther) {
+	
+	
+	var enemyInst;
+	if (cEnemy) {
+		enemyInst = instance_place(x + h_spd, y, enemy1_obj);
+	}
+	else {
+		enemyInst = instance_place(x, y, enemy1_obj);
+	}
+	
+	
+	if (sprite_index == player_attack1_spr && image_index == 2) {
+		enemyInst.dying = true;
+	}
+	else if (sprite_index == player_attack2_spr && (image_index == 6 || image_index == 7)) {
+		enemyInst.dying = true;
+	}
+		else if (sprite_index == player_attack3_spr && (image_index == 3 || image_index == 4)) {
+		enemyInst.dying = true;
+	}
+	else if (sprite_index == player_air_attack1_spr && image_index == 1) {
+		enemyInst.dying = true;
+	}
+	else if (sprite_index == player_air_attack2_spr && image_index <= 2) {
+		enemyInst.dying = true;
+	}
+	else if (sprite_index == player_air_attack3_loop_spr || sprite_index == player_air_attack3_end_spr) {
+		enemyInst.dying = true;
+	}
+	
+	if (!enemy_collided && enemyInst.dying == false) {
+		
 		hp -= 1;
-		show_debug_message(hp)
 	}
 	
 	enemy_collided = true;

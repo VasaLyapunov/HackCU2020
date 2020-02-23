@@ -7,6 +7,9 @@ if(attack_timer <= 0)
 if(attacking) {
 	sprite_index = enemy1_attack_spr;
 }
+else if (dying) {
+	sprite_index = enemy1_die_spr;
+}
 else {
 	// Attack stance if close
 	var distance = distance_to_object(player_obj);
