@@ -9,14 +9,27 @@ key_left = keyboard_check(vk_left);
 key_right = keyboard_check(vk_right);
 key_jump = keyboard_check_pressed(vk_space);
 
-//DEBUG
-if (key_right) {
-    show_debug_message("Right");
-}
-
 h_dir = (key_right - key_left);
 var h_spd = h_dir * walk_spd;
 v_spd = v_spd + grav_acc;
+
+// Grab possible collisions
+cEnemy = place_meeting(x + h_spd, y, enemy1_obj);
+
+// Interact with enemies
+if (cEnemy || place_meeting(x, y, enemy1_obj)) {
+	if (!enemy_collided) {
+		hp -= 1;
+		show_debug_message(hp)
+	}
+	
+	enemy_collided = true;
+}
+
+else {
+	enemy_collided = false;
+}
+
 
 // -- Movement
 
@@ -28,8 +41,8 @@ if place_meeting(x, y+1, ground1_obj) && key_jump && !animation_interrupt {
 }    
 
 // Hor collision
-if(place_meeting(x+h_spd, y, ground1_obj)) {
-    while(!place_meeting(x+h_dir, y, ground1_obj)) {
+if(place_meeting(x+h_spd, y, ground1_obj) || cEnemy) {
+    while(!place_meeting(x+h_dir, y, ground1_obj) && !place_meeting(x + h_dir, y, enemy1_obj)) {
         x = x + h_dir;
     }
     h_spd = 0;
