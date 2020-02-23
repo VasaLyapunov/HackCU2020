@@ -39,6 +39,14 @@
             }
         },
         {
+            "Key": "0b938222-94df-43d4-a314-2312a0842775",
+            "Value": {
+                "id": "f0012cc5-58d2-43da-919f-114fd1699406",
+                "resourcePath": "sprites\\enemy1_idle_spr\\enemy1_idle_spr.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0bb7c6a0-65a3-4f17-bb51-9f929e995f34",
             "Value": {
                 "id": "9a360ff0-240a-4c6b-8cd0-43d7ce817a7c",
@@ -114,7 +122,7 @@
             "Key": "4ee05c44-0f10-4275-80c4-012d7abc8b9f",
             "Value": {
                 "id": "6bb19e93-0da0-487b-a929-bd09bd34f75d",
-                "resourcePath": "rooms\\room0\\room0.yy",
+                "resourcePath": "rooms\\vasa_room_1\\vasa_room_1.yy",
                 "resourceType": "GMRoom"
             }
         },
@@ -283,6 +291,14 @@
             "Value": {
                 "id": "60f7836a-021c-491b-a915-52485e6b61b9",
                 "resourcePath": "sprites\\player_air_attack2_spr\\player_air_attack2_spr.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "aaad155a-191c-45aa-a320-c238702f4b08",
+            "Value": {
+                "id": "8082a665-e9c0-4d07-aacd-88d2f2ade98e",
+                "resourcePath": "sprites\\enemy1_attack_spr\\enemy1_attack_spr.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -511,6 +527,14 @@
             }
         },
         {
+            "Key": "edcee831-25fa-4467-a345-9673ae0498ca",
+            "Value": {
+                "id": "0c52fa38-8b08-42e9-86e9-47cac9cd9551",
+                "resourcePath": "rooms\\vasa_room_2\\vasa_room_2.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "ef797ec6-329d-4108-ae3b-7c6a6aac6a93",
             "Value": {
                 "id": "c242dd48-367a-47fb-8393-17bb201f2e8f",
@@ -530,7 +554,7 @@
             "Key": "f456e8e8-b9f8-4784-9128-8dfe04fb0ef8",
             "Value": {
                 "id": "cfc9b29b-e703-4289-a085-dafde25e5410",
-                "resourcePath": "sprites\\sprite31\\sprite31.yy",
+                "resourcePath": "sprites\\enemy1_die_spr\\enemy1_die_spr.yy",
                 "resourceType": "GMSprite"
             }
         },
