@@ -159,10 +159,42 @@
             }
         },
         {
+            "Key": "6f5f8869-56f7-4ff5-86d5-21f3c1968ad9",
+            "Value": {
+                "id": "d26eab48-065f-4100-b373-d1527c39318e",
+                "resourcePath": "sprites\\sprite30\\sprite30.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "704d11d0-d9df-41dd-8c01-1ff24343869b",
             "Value": {
                 "id": "3c7fddf5-3cf0-4661-b66e-d376b42bbe7f",
                 "resourcePath": "sprites\\player_air_attack3_loop_spr\\player_air_attack3_loop_spr.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "762fd6e1-e026-4898-b4fa-e2ab28ce1fca",
+            "Value": {
+                "id": "70c3b5e0-d7f2-4e58-a7be-a15c54d789c0",
+                "resourcePath": "objects\\spike_obj\\spike_obj.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "7aa9ab88-5f94-48c4-8f43-13e6e3aded4b",
+            "Value": {
+                "id": "a7cbe504-ef6b-43db-963b-e1f738e74a4c",
+                "resourcePath": "rooms\\room1\\room1.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "80fb90fc-d4ea-469b-84e4-6852865d70fc",
+            "Value": {
+                "id": "1f13e849-9981-4e5f-a31f-b947dc95decd",
+                "resourcePath": "sprites\\sprite32\\sprite32.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -188,6 +220,14 @@
                 "id": "642530d9-e7fc-492a-803f-d0a080abaf06",
                 "resourcePath": "sprites\\player_cast_loop_spr\\player_cast_loop_spr.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8589e296-f770-46fc-840c-069c7127f1e5",
+            "Value": {
+                "id": "beb3718f-df0a-4879-851a-e01c6a27d076",
+                "resourcePath": "objects\\danger_obstacle\\danger_obstacle.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -228,6 +268,14 @@
                 "id": "60f7836a-021c-491b-a915-52485e6b61b9",
                 "resourcePath": "sprites\\player_air_attack2_spr\\player_air_attack2_spr.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a35e255c-acb0-46ff-8934-28992faa8dbd",
+            "Value": {
+                "id": "d361c1a1-8a7f-4917-a458-dbcab3308686",
+                "resourcePath": "views\\a35e255c-acb0-46ff-8934-28992faa8dbd.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -391,6 +439,14 @@
             }
         },
         {
+            "Key": "e0263d1a-ab8d-4a62-add5-78eaabafb44b",
+            "Value": {
+                "id": "e49c9ee5-bb7a-4f98-ae0b-2744f1687a93",
+                "resourcePath": "objects\\variable_block\\variable_block.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e301ff40-78e5-4b3e-baaf-1c1e466b13a2",
             "Value": {
                 "id": "399e5354-6d05-4f37-a20c-8debfc2cce99",
@@ -459,6 +515,14 @@
             "Value": {
                 "id": "437a2111-145a-430b-bf20-4bed63611c45",
                 "resourcePath": "sprites\\gallet_tiles_spr\\gallet_tiles_spr.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f456e8e8-b9f8-4784-9128-8dfe04fb0ef8",
+            "Value": {
+                "id": "cfc9b29b-e703-4289-a085-dafde25e5410",
+                "resourcePath": "sprites\\sprite31\\sprite31.yy",
                 "resourceType": "GMSprite"
             }
         },
