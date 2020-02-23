@@ -12,6 +12,46 @@ key_jump = keyboard_check_pressed(vk_space);
 h_dir = (key_right - key_left);
 var h_spd = h_dir * walk_spd;
 v_spd = v_spd + grav_acc;
+//Change rooms
+if(x > room_width-sprite_width){
+	if(global.rightRoomIndex >= 0){
+		room_goto(global.rightRoomIndex);
+		x=0;
+	}
+	else{
+		
+		x=room_width-sprite_width;
+	}
+}
+if(x < 0){
+	if(global.leftRoomIndex >= 0){
+		room_goto(global.leftRoomIndex);
+		x=room_width-sprite_width;
+	}
+	else{
+		x=0
+	}
+}
+if(y > room_height-sprite_height){
+	if(global.downRoomIndex >= 0){
+		room_goto(global.downRoomIndex);
+		y=0;
+	}
+	else{
+		
+		y=room_height-sprite_height;
+	}
+}
+if(y < 0){
+	show_debug_message(string(global.upRoomIndex));
+	if(global.upRoomIndex >= 0){
+		room_goto(global.upRoomIndex);
+		y=room_height-sprite_height;
+	}
+	else{
+		y=0
+	}
+}
 
 // Grab possible collisions
 cEnemy = place_meeting(x + h_spd, y, enemy1_obj);
