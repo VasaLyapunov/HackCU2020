@@ -7,3 +7,5 @@ layer_id = layer_get_id("Background_Color");
 bg_id = layer_background_get_id(layer_id);
 unit = 1;
 bias = -unit;
+timeout = 3;
+new_color = make_colour_rgb(r, g, b);
