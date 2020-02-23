@@ -20,9 +20,9 @@ for(i=0;i<80;i++){
 	ny = (i div 10)*64+((j div 4)*512);
 	if(string_char_at(trap, i+1)=="1"){
 		instance_create_layer(nx,ny,"Instances",ground1_obj);
-		instance_create_layer(nx+32,ny,"Instances",ground1_obj);
-		instance_create_layer(nx,ny+32,"Instances",ground1_obj);
-		instance_create_layer(nx+32,ny+32,"Instances",ground1_obj);
+		//instance_create_layer(nx+32,ny,"Instances",ground1_obj);
+		//instance_create_layer(nx,ny+32,"Instances",ground1_obj);
+		//instance_create_layer(nx+32,ny+32,"Instances",ground1_obj);
 
 	}
 	else if(string_char_at(trap, i+1)=="2"){
