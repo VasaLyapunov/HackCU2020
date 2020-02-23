@@ -2,7 +2,7 @@
 
 // Reset attack timer
 if(attack_timer <= 0)
-	attack_timer = irandom_range(20,30);
+	attack_timer = irandom_range(20,55);
 
 if(attacking) {
 	sprite_index = enemy1_attack_spr;
@@ -10,7 +10,7 @@ if(attacking) {
 else {
 	// Attack stance if close
 	var distance = distance_to_object(player_obj);
-	if(distance < 100) {
+	if(distance < 80) {
 		sprite_index = enemy1_idle_spr;
 		attack_timer--;
 		if(attack_timer <= 0) {
