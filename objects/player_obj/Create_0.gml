@@ -14,6 +14,10 @@ tenacity = 0;
 sanity = 10;
 mana = 10;
 
+// status
+i_frame = false;
+alpha_track = 0;
+
 flash = 20;
 
 bar_width = 500;
