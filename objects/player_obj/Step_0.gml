@@ -131,6 +131,7 @@ if (keyboard_check_pressed(ord("X")) && !animation_interrupt && sword_out) {
 
 if (started_jump) {
     animation_interrupt = true;
+	image_index = 0;
     sprite_index = player_jump_spr;
 }
 
@@ -165,7 +166,7 @@ if (keyboard_check_pressed(ord("D")) && !animation_interrupt) {
 	image_index = 0;
 	sprite_index = player_attack3_spr;
 }
-else if (keyboard_check_pressed(ord("D")) && animation_interrupt && in_air && (sprite_index == player_jump_spr || sprite_index == player_fall_spr)) {
+else if (keyboard_check_pressed(ord("D")) && animation_interrupt && in_air && sprite_index == player_fall_spr) {
 	animation_interrupt = true;
 	image_index = 0;
 	sprite_index = player_air_attack3_loop_spr;
